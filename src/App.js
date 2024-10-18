@@ -1,12 +1,16 @@
 //import logo from './logo.svg';
 import Navbar from './navBar';
 import Home from './Home';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Create from './create';
+import BlogDetails from './blogdetails';
 
 function App() {
   //const title = "Welcome to the new blog";
   //const likes = 50;
   //const link = "https://www.google.com";
   return (
+    <Router>
     <div className="App">
       <Navbar />
       <div className="content">
@@ -18,9 +22,16 @@ function App() {
         <p>{Math.random() * 10}</p>
         <a href={link}>Google Site</a> */}
 
-        <Home />
+       {/*  <Home /> */}
+
+       <Routes>
+        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/create" element={<Create />}></Route>
+        <Route exact path="/blogs/:id" element={<BlogDetails />}></Route>
+       </Routes>
       </div>
     </div>
+    </Router>
   );
 }
 
